@@ -1,19 +1,19 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('checkscm') { 
             steps {
-                // 
+               check scm
             }
         }
         stage('Test') { 
             steps {
-                // 
+                sh `mvn test`
             }
         }
-        stage('Deploy') { 
+        stage('build') { 
             steps {
-                // 
+                sh `mvn install`
             }
         }
     }
